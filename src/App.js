@@ -12,13 +12,16 @@ function App() {
   useEffect(() => {
     const sendWeatherData = async () => {
       const unitValue = queryObject.units;
-      const response = await fetch(`http://localhost:3001/${unitValue}`, {
-        method: "POST",
-        body: JSON.stringify(queryObject),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://davidthus-weather-app.herokuapp.com/${unitValue}`,
+        {
+          method: "POST",
+          body: JSON.stringify(queryObject),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       setWeatherData(data);
     };
@@ -32,10 +35,13 @@ function App() {
       <Header />
       <main className={styles.container}>
         <Selector setQueryObject={setQueryObject} />
-        { weatherData ? <WeatherDisplay weatherData={weatherData} /> :
-          <div className={styles.notFound}>Data will be displayed here after you make a query.</div>
-        }
-        
+        {weatherData ? (
+          <WeatherDisplay weatherData={weatherData} />
+        ) : (
+          <div className={styles.notFound}>
+            Data will be displayed here after you make a query.
+          </div>
+        )}
       </main>
     </>
   );
