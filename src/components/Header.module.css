@@ -1,0 +1,51 @@
+:root {
+  --text-color: #edd382;
+  --background-color: #020122;
+  --title: #ff521b;
+  --primary: #c0e0de;
+  --secondary: #fc9e4f;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  width: 100%;
+  min-width: 200px;
+  z-index: 50;
+  border-bottom: solid 2px var(--primary)
+}
+
+.title {
+  font-size: 7vmin;
+  margin: 0.2em;
+  color: var(--title);
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 2.5rem;
+   }
+}
+
+.description {
+  width: 100%;
+  margin: 0.5em;
+  text-align: center;
+  font-size: 3vmin;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 500px) {
+  .description {
+    font-size: .8rem;
+   }
+}
+
+@media screen and (min-width: 900px) {
+  .description {
+    max-width: 900px;
+   }
+}

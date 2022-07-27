@@ -1,0 +1,112 @@
+:root {
+  --text-color: #edd382;
+  --background-color: #020122;
+  --title: #ff521b;
+  --primary: #4f6d7a;
+  --secondary: #fc9e4f;
+}
+
+.container {
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  padding: 3%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  break-inside: avoid;
+}
+
+.title {
+  color: var(--background-color);
+  margin: 0;
+}
+
+.groupContainer {
+  margin: .5rem 0;
+  column-count: 2;
+  column-width: 40%;
+  column-gap: .5rem;
+}
+
+.group {
+  display: flex;
+  break-inside: avoid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  margin-bottom: .5rem;
+  padding: 0;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.headingContainer {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--primary);
+}
+
+.heading {
+  font-size: 1.1rem;
+  margin: 0;
+  padding-bottom: 0.2rem;
+  color: var(--title);
+}
+
+.coordContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.span {
+  color: var(--primary);
+  /* text-decoration: underline; */
+}
+
+.countryCode {
+  position: relative;
+}
+
+.countryCode:before,
+.countryCode:after {
+  --scale: 0;
+  position: absolute;
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+  transition: 400ms transform;
+  transform-origin: bottom center;
+}
+
+.countryCode:before {
+  content: attr(data-tooltip);
+  padding: 0.5rem;
+  width: max-content;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: var(--primary);
+  font-size: 0.6rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  color: var(--text-color);
+}
+
+.countryCode:hover::before,
+.countryCode:hover:after {
+  --scale: 1;
+}
