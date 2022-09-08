@@ -13,7 +13,7 @@ function App() {
     const sendWeatherData = async () => {
       const unitValue = queryObject.units;
       const response = await fetch(
-        `https://davidthus-weather-app.herokuapp.com/${unitValue}`,
+        `https://53vt3u.deta.dev/${unitValue}`,
         {
           method: "POST",
           body: JSON.stringify(queryObject),
